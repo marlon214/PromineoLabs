@@ -41,22 +41,36 @@ public class Week3LabArraysandMethods {
 		//12
 		greeting("Marlon");
 		//13
+		System.out.println(greeting2("Marlon"));
+		//The first greeting does the function for you, while greeting 2 returns a string fo ryou to print
 		//14
 		StringLongerThanInt("Burrito",5);
 		//15
-		existsInArry(names[], "Pretty");
+		existsInArry(names, "Pretty");
 		//16
-		smallestNumber(values[]);
+		smallestNumber(values);
 		//17
 		double math[]= {5.7,6.9,7.7};
-		average(math[]);
+		average(math);
+		//18
+		int letterInNames[]=numberOfLetters(names);
+		for (int i=0;i<letterInNames.length;i++) {
+			System.out.println(letterInNames[i]);
+		}
+		//19
+		System.out.println(evenOverOdd(values));
+		//20
+		System.out.println(isPalindrome("mom"));
 		
 		}
 		public static void greeting (String word) {
 			System.out.println("Hello "+ word);
 		}
+		public static String greeting2 (String word) {
+			return("Hello "+ word);
+		}
 		public static boolean StringLongerThanInt (String word,int num) {
-			if(word.lenth()>num)
+			if(word.length()>num)
 				return true;
 			else
 				return false;
@@ -65,9 +79,8 @@ public class Week3LabArraysandMethods {
 			for (int i=0;i<words.length;i++) {
 				if (words[i]==letters)
 					return true;
-				else 
-					return false;
 			}
+			return false;
 		}
 		public static int smallestNumber(int numbers[]){
 			int num=numbers[0];
@@ -84,7 +97,33 @@ public class Week3LabArraysandMethods {
 			}
 			return avg/numbers.length;
 		}
+		public static int[] numberOfLetters(String[] names) {
+			int numbers[] = null;
+			for (int i=0; i<names.length;i++) {
+				numbers[i]=names[i].length();
+			}
+			return numbers;
+		}
+		public static boolean evenOverOdd(int number[]) {
+			int evens=0;
+			int odds=0;
+			for (int i=0;i<number.length;i++) {
+			if(number[i]%2==0)
+				evens+=number[i];
+			else
+				odds+=number[i];
+		}
+		if (evens>odds)
+			return true;
+		else
+			return false;
+		}
+		public static boolean isPalindrome(String string) {
+			for (int i=0;i<string.length();i++) {
+				if(string.charAt(i)!=string.charAt(string.length()-i-1))
+					return false;
+			}
+			return true;
+		}
 	}
 	
-
-
